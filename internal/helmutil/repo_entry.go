@@ -17,6 +17,7 @@ func getHome() helmpath.Home {
 	h := helmpath.Home(environment.DefaultHelmHome)
 	if os.Getenv(envHelmHome) != "" {
 		h = helmpath.Home(os.Getenv(envHelmHome))
+		return nil, errors.Errorf("path is %s", h)
 	}
 
 	return h
